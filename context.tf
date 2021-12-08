@@ -34,8 +34,8 @@ module "this" {
   label_order         = var.label_order
   regex_replace_chars = var.regex_replace_chars
   id_length_limit     = var.id_length_limit
-  label_key_case      = var.label_key_case
-  label_value_case    = var.label_value_case
+  #label_key_case      = var.label_key_case
+  #label_value_case    = var.label_value_case
 
   context = var.context
 }
