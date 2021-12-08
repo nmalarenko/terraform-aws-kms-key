@@ -68,15 +68,15 @@ variable "context" {
     except for attributes, tags, and additional_tag_map, which are merged.
   EOT
 
-  validation {
-    condition     = lookup(var.context, "label_key_case", null) == null ? true : contains(["lower", "title", "upper"], var.context["label_key_case"])
-    error_message = "Allowed values: `lower`, `title`, `upper`."
-  }
+  #validation {
+  #  condition     = lookup(var.context, "label_key_case", null) == null ? true : contains(["lower", "title", "upper"], var.context["label_key_case"])
+  #  error_message = "Allowed values: `lower`, `title`, `upper`."
+  #}
 
-  validation {
-    condition     = lookup(var.context, "label_value_case", null) == null ? true : contains(["lower", "title", "upper", "none"], var.context["label_value_case"])
-    error_message = "Allowed values: `lower`, `title`, `upper`, `none`."
-  }
+  #validation {
+  #  condition     = lookup(var.context, "label_value_case", null) == null ? true : contains(["lower", "title", "upper", "none"], var.context["label_value_case"])
+  #  error_message = "Allowed values: `lower`, `title`, `upper`, `none`."
+  #}
 }
 
 variable "enabled" {
@@ -164,10 +164,10 @@ variable "id_length_limit" {
     Set to `null` for default, which is `0`.
     Does not affect `id_full`.
   EOT
-  validation {
-    condition     = var.id_length_limit == null ? true : var.id_length_limit >= 6 || var.id_length_limit == 0
-    error_message = "The id_length_limit must be >= 6 if supplied (not null), or 0 for unlimited length."
-  }
+  #validation {
+  #  condition     = var.id_length_limit == null ? true : var.id_length_limit >= 6 || var.id_length_limit == 0
+  #  error_message = "The id_length_limit must be >= 6 if supplied (not null), or 0 for unlimited length."
+  #}
 }
 
 variable "label_key_case" {
@@ -179,10 +179,10 @@ variable "label_key_case" {
     Default value: `title`.
   EOT
 
-  validation {
-    condition     = var.label_key_case == null ? true : contains(["lower", "title", "upper"], var.label_key_case)
-    error_message = "Allowed values: `lower`, `title`, `upper`."
-  }
+  #validation {
+  #  condition     = var.label_key_case == null ? true : contains(["lower", "title", "upper"], var.label_key_case)
+  #  error_message = "Allowed values: `lower`, `title`, `upper`."
+  #}
 }
 
 variable "label_value_case" {
@@ -194,9 +194,9 @@ variable "label_value_case" {
     Default value: `lower`.
   EOT
 
-  validation {
-    condition     = var.label_value_case == null ? true : contains(["lower", "title", "upper", "none"], var.label_value_case)
-    error_message = "Allowed values: `lower`, `title`, `upper`, `none`."
-  }
+  #validation {
+  #  condition     = var.label_value_case == null ? true : contains(["lower", "title", "upper", "none"], var.label_value_case)
+  #  error_message = "Allowed values: `lower`, `title`, `upper`, `none`."
+  #}
 }
 #### End of copy of cloudposse/terraform-null-label/variables.tf
